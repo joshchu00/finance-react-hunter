@@ -19,13 +19,44 @@ class Symbol extends Component {
     const { exchange, symbol, period } = this.props.match.params;
 
     fetch(`http://localhost:50080/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
+      .then(
+        response => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
         }
-        return response.json();
-      })
-      .then(data => this.setState({ name: data.name, records: data.records }))
+      )
+      .then(
+        data => {
+          const records = [
+            [
+              {type: 'date', label: 'Date'},
+              {type: 'number', label: 'Something'},
+              {type: 'number', label: 'Something'},
+              {type: 'number', label: 'Something'},
+              {type: 'number', label: 'Something'},
+              // {type: 'number', role: 'data', label: 'Something'},
+              // {type: 'string', role: 'annotation'},
+              // {type: 'string', role: 'annotationText'},
+            ],
+          ].concat(
+            data.records.map(
+              record => [
+                new Date(parseInt(record.datetime, 10)), 
+                record.low, 
+                record.open, 
+                record.close, 
+                record.high,
+              ]
+            )
+          );
+
+          this.setState(
+            { name: data.name, records: records }
+          )
+        }
+      )
       .catch(error => this.setState({ error }));
   }
 
@@ -39,23 +70,6 @@ class Symbol extends Component {
 
     // const { exchange, symbol, period } = this.props.match.params;
 
-    const data = [
-      [
-        {type: 'date', label: 'Date'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        // {type: 'number', role: 'data', label: 'Something'},
-        // {type: 'string', role: 'annotation'},
-        // {type: 'string', role: 'annotationText'},
-      ],
-    ].concat(
-      records.map((record) => 
-        [new Date(parseInt(record.datetime, 10)), record.low, record.open, record.close, record.high]
-      )
-    );
-
     return (
       <div className='Symbol'>
         <Chart
@@ -63,7 +77,7 @@ class Symbol extends Component {
           height='600px'
           chartType='ComboChart'
           loader={<div>Loading Chart</div>}
-          data={data}
+          data={records}
           options={{
             legend: 'none',
             bar: {
