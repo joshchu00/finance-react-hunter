@@ -15,13 +15,13 @@ class SymbolChart extends Component {
     const { records } = this.props;
 
     const data = google.visualization.arrayToDataTable([[
-        {type: 'date', label: 'Date'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
-        {type: 'number', label: 'Something'},
+        {type: 'date', label: 'date'},
+        {type: 'number', label: 'low'},
+        {type: 'number', label: 'open'},
+        {type: 'number', label: 'close'},
+        {type: 'number', label: 'high'},
+        {type: 'number', label: 'volume'},
+        {type: 'number', label: 'something'},
         // {type: 'string', role: 'annotation'},
         // {type: 'string', role: 'annotationText'},
       ],]
@@ -51,6 +51,9 @@ class SymbolChart extends Component {
         'width': '100%',
         'height': '300',
         'legend': 'none',
+        'chartArea': {
+          'width': '80%',
+        },
         'bar': {
           'groupWidth': '80%',
         },
@@ -66,14 +69,14 @@ class SymbolChart extends Component {
             'fill': '#a52714', 
           }, // red
         },
-        'seriesType': 'line',
+        'seriesType': 'candlesticks',
         'series': {
           '0': {
             'type': 'candlesticks',
             'color': 'black', 
           }, 
           '1': {
-            'type': 'line',
+            'type': 'bars',
             'color': 'black', 
           },
         },
@@ -91,6 +94,9 @@ class SymbolChart extends Component {
           'chartOptions': {
             'width': '100%',
             'height': '100',
+            'chartArea': {
+              'width': '80%',
+            },
             'hAxis': { 'baselineColor': 'none' },
           },
           'chartView': {
@@ -107,6 +113,9 @@ class SymbolChart extends Component {
         'width': '100%',
         'height': '100',
         'legend': 'none',
+        'chartArea': {
+          'width': '80%',
+        },
         'bar': {
           'groupWidth': '80%',
         },
