@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom'
 import './index.css';
-import Symbol from './Symbol';
+import Symbol from './Symbol/Symbol';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -11,7 +11,8 @@ ReactDOM.render(
       <Route path="/exchange/:exchange/symbol/:symbol/period/:period" component={Symbol}></Route>
     </div>
   </BrowserRouter>
-  , document.getElementById('root'));
+  , document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
