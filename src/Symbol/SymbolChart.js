@@ -41,7 +41,7 @@ class SymbolChart extends Component {
 
     const getDataIndexes = (names) => names.map(x => getDataIndex(x))
     
-    const volumeStyle = (open, close) => open < close ? '#0f9d58' : '#a52714';
+    const getVolumeStyle = (open, close) => open < close ? '#0f9d58' : '#a52714';
 
     const data = google.visualization.arrayToDataTable([[
         {type: 'date', label: DATE},
@@ -64,7 +64,7 @@ class SymbolChart extends Component {
             record.close,
             record.high,
             record.volume,
-            volumeStyle(record.open, record.close),
+            getVolumeStyle(record.open, record.close),
             22 + Math.random() * 3,
           ]
         )
