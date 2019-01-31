@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../config/config';
 import './Symbol.css';
 import SymbolHeader from './SymbolHeader';
 import SymbolChart from './SymbolChart';
@@ -19,7 +20,7 @@ class Symbol extends Component {
 
     const { exchange, symbol, period } = this.props.match.params;
 
-    fetch(`http://localhost:50080/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
+    fetch(`${config.porter.v1.url}/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
     .then(
       response => {
         if (!response.ok) {
