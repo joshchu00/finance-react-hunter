@@ -1,5 +1,4 @@
-ARG NODE_IMAGE=node:11.8.0-alpine
-FROM $NODE_IMAGE
+FROM node:11.8.0-alpine
 WORKDIR /app
 COPY . ./
 CMD ["node", "-r", "esm", "server.js"]

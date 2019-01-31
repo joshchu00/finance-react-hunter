@@ -14,7 +14,7 @@ node {
       }
     }    
     stage('Docker Build') {
-      hunterImage = docker.build('docker.io/joshchu00/finance-react-hunter', "--build-arg NODE_IMAGE=${params.NODE_IMAGE} .")
+      hunterImage = docker.build('docker.io/joshchu00/finance-react-hunter')
     }
     stage('Docker Push') {
       docker.withRegistry('', 'DockerHub') {
