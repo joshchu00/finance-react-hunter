@@ -20,7 +20,7 @@ class Symbol extends Component {
 
     const { exchange, symbol, period } = this.props.match.params;
 
-    fetch(`${config.porter.v1.url}/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
+    fetch(`${config.porter.v1.scheme}://${config.porter.v1.host}:${config.porter.v1.port}/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
     .then(
       response => {
         if (!response.ok) {

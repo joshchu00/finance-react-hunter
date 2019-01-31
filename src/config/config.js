@@ -7,7 +7,9 @@ const config = {
   },
   porter: {
     v1: {
-      url: process.env.PORTER_V1_URL || 'http://192.168.33.10:51011',
+      scheme: process.env.PORTER_V1_SCHEME || 'http',
+      host: process.env.PORTER_V1_HOST || '192.168.33.10',
+      port: process.env.PORTER_V1_PORT || '51011',
     },
   },
 };
