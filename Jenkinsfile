@@ -4,7 +4,8 @@ build {
   [
     gitURL = 'https://github.com/joshchu00/finance-react-hunter.git',
     gitBranch = 'develop',
-    buildImage = params.NODE_IMAGE,
+    buildLanguage = 'react',
+    buildImage = 'node:11.8.0-alpine',
     dockerName = 'joshchu00/finance-react-hunter'
   ]
 }
