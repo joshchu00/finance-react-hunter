@@ -2,7 +2,7 @@ node {
 
   docker.withTool('docker-latest') {
 
-    def hunterImage
+    def image
 
     stage('Git Pull') {
       git url: 'https://github.com/joshchu00/finance-react-hunter.git', branch: 'develop'
@@ -14,11 +14,11 @@ node {
       }
     }    
     stage('Docker Build') {
-      hunterImage = docker.build('docker.io/joshchu00/finance-react-hunter')
+      image = docker.build('joshchu00/finance-react-hunter')
     }
     stage('Docker Push') {
       docker.withRegistry('', 'DockerHub') {
-        hunterImage.push()
+        image.push()
       }
     }
   }
