@@ -20,7 +20,7 @@ class Symbol extends Component {
 
     const { exchange, symbol, period } = this.props.match.params;
 
-    fetch(`${config.shielder.scheme}://${config.shielder.host}:${config.shielder.port}/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
+    fetch(`${config.shielder.proxy.scheme}://${config.shielder.proxy.host}:${config.shielder.proxy.port}/porter/v1/exchange/${exchange}/symbol/${symbol}/period/${period}`)
     .then(
       response => {
         if (!response.ok) {

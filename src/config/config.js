@@ -6,9 +6,11 @@ const config = {
     port: process.env.HUNTER_PORT || '50080',
   },
   shielder: {
-    scheme: process.env.SHIELDER_SCHEME || 'http',
-    host: process.env.SHIELDER_HOST || '192.168.33.10',
-    port: process.env.SHIELDER_PORT || '58080',
+    proxy: {
+      scheme: process.env.SHIELDER_PROXY_SCHEME || 'http',
+      host: process.env.SHIELDER_PROXY_HOST || '192.168.33.10',
+      port: process.env.SHIELDER_PROXY_PORT || '58080',
+    },
   },
 };
 
