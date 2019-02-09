@@ -1,5 +1,9 @@
+window.config = {}
 window.config.environment = undefined;
+window.config.hunter = {}
 window.config.hunter.port = undefined;
+window.config.shielder = {}
+window.config.shielder.proxy = {}
 window.config.shielder.proxy.scheme = undefined;
 window.config.shielder.proxy.host = undefined;
 window.config.shielder.proxy.port = undefined;
