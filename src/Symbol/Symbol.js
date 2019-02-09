@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import config from '../config/config';
 import './Symbol.css';
 import SymbolHeader from './SymbolHeader';
 import SymbolChart from './SymbolChart';
+
+const config = window.config;
 
 class Symbol extends Component {
 
