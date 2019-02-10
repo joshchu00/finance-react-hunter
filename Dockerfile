@@ -1,4 +1,5 @@
 FROM node:11.8.0-alpine
 WORKDIR /app
 COPY . .
-CMD ["sh", "docker-entrypoint.sh"]
+RUN sh generate-config-js.sh > build/config.js
+CMD ["node", "-r", "esm", "server.js"]
