@@ -5,7 +5,7 @@ const google = window.google;
 
 class SymbolChart extends Component {
 
-  componentDidMount() {
+  componentDidUpdate() {
     google.charts.load('current', {'packages':['corechart', 'controls']});
     google.charts.setOnLoadCallback(this.drawVisualization);
   }
@@ -80,7 +80,7 @@ class SymbolChart extends Component {
       'containerId': 'symbol-candlestick',
       'options': {
         'width': '100%',
-        'height': '300',
+        'height': '500',
         'legend': 'none',
         'chartArea': {
           'width': '80%',
@@ -140,7 +140,7 @@ class SymbolChart extends Component {
       'controlType': 'ChartRangeFilter',
       'containerId': 'symbol-control',
       'options': {
-        'filterColumnIndex': getDataIndex('date'),
+        'filterColumnIndex': getDataIndex(DATE),
         'ui': {
           'chartType': 'LineChart',
           'chartOptions': {
