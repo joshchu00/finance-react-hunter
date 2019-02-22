@@ -1,5 +1,5 @@
 window.config = {}
-window.config.environment = undefined;
+window.config.environment.name = undefined;
 window.config.hunter = {}
 window.config.hunter.port = undefined;
 window.config.shielder = {}
