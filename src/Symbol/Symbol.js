@@ -12,7 +12,7 @@ class Symbol extends Component {
 
     this.state = {
       name: '',
-      records: [],
+      ticks: [],
       error: null,
     };
   }
@@ -33,7 +33,7 @@ class Symbol extends Component {
     .then(
       data => {
         this.setState(
-          { name: data.name, records: data.records }
+          { name: data.name, ticks: data.ticks }
         )
       }
     )
@@ -44,7 +44,7 @@ class Symbol extends Component {
     return (
       <div className='Symbol'>
         <SymbolHeader name={this.state.name} symbol={this.props.match.params.symbol}/>
-        <SymbolChart records={this.state.records} />
+        <SymbolChart ticks={this.state.ticks} />
       </div>
     );
   }
